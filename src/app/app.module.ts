@@ -21,6 +21,6 @@ import { StarComponent } from './star/star.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ProductListComponent]
 })
 export class AppModule { }
