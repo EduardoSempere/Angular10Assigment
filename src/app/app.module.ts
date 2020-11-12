@@ -1,29 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { StarComponent } from './star/star.component';
-import { FilterProductListPipe } from './filter-product-list.pipe';
+import { WelcomeComponent } from './home/welcome/welcome.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsModule } from './products/products.module';
+import { UsersModule } from './users/users.module';
+import { Assignment1Module } from './assignment1/assignment1.module';
+import { Assignment2Module } from './assignment2/assignment2.module';
+import { Assignment3Module } from './assignment3/assignment3.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    ProductListComponent,
-    ProductDetailComponent,
-    StarComponent,
-    FilterProductListPipe
+    WelcomeComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule
+    BrowserModule,  
+    HttpClientModule,
+    AppRoutingModule, 
+    ProductsModule,
+    Assignment1Module,
+    Assignment2Module,
+    Assignment3Module,
+    UsersModule
   ],
   providers: [],
-  bootstrap: [ProductListComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
