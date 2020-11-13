@@ -1,11 +1,27 @@
 <div class="responsive" *ngIf="employees && employees.length" style="margin-top: 1em;">
-    <table class="table table-striped table-bordered" >
+    <table class="table table-striped table-bordered">
         <thead class="thead-inverse">
             <tr>
-                <th class="thSort" (click)="sort(0, 'empId',0)">ID</th>
-                <th class="thSort" (click)="sort(1, 'empName',1)">NAME</th>
-                <th class="thSort" (click)="sort(2, 'empSal',0)">SALARY</th>
-                <th class="thSort" (click)="sort(3, 'empDep',1)">DEPARTMENT</th>
+                <th class="thSort" (click)="sort(0, 'empId',0)">
+                    ID
+                    <i *ngIf="clickcol[0]==2" class="fa fa-sort-up"></i>
+                    <i *ngIf="clickcol[0]==1" class="fa fa-sort-down"></i>
+                </th>
+                <th class="thSort" (click)="sort(1, 'empName',1)">
+                    NAME
+                    <i *ngIf="clickcol[1]==2" class="fa fa-sort-up"></i>
+                    <i *ngIf="clickcol[1]==1" class="fa fa-sort-down"></i>
+                </th>
+                <th class="thSort" (click)="sort(2, 'empSal',0)">
+                    SALARY
+                    <i *ngIf="clickcol[2]==2" class="fa fa-sort-up"></i>
+                    <i *ngIf="clickcol[2]==1" class="fa fa-sort-down"></i>
+                </th>
+                <th class="thSort" (click)="sort(3, 'empDep',1)">
+                    DEPARTMENT
+                    <i *ngIf="clickcol[3]==2" class="fa fa-sort-up"></i>
+                    <i *ngIf="clickcol[3]==1" class="fa fa-sort-down"></i>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -14,9 +30,9 @@
                 <td>{{employee.empName}}</td>
                 <td>{{employee.empSal | currency: 'USD'}}</td>
                 <td>{{employee.empDep}}</td>
-                
+
             </tr>
-             
+
         </tbody>
     </table>
 </div>

@@ -1,0 +1,12 @@
+[
+    {"empId": 1001,"empName": "Rahul","empSal": 9000, "empDep": "Java"},
+    {"empId": 1002,"empName": "Sachin","empSal": 11000, "empDep": "OraApps"},
+    {"empId": 1003,"empName": "Vikash","empSal": 22000, "empDep": "Java"},
+    {"empId": 1004,"empName": "Sachin","empSal":  11500, "empDep": "ORAAPS"},
+    {"empId": 1005,"empName": "Amol","empSal": 700, "empDep": ".Net"},
+    {"empId": 1006,"empName": "Vishal","empSal": 17000, "empDep": "BI"},
+    {"empId": 1007,"empName": "Rajita","empSal": 21000, "empDep": "Bi"},
+    {"empId": 1008,"empName": "Neelima","empSal": 81000, "empDep": "Testing"},
+    {"empId": 1009,"empName": "Daya","empSal": 1000, "empDep": "TESTING"}
+
+]

@@ -10,7 +10,7 @@ import { IAssigment3 } from '../model/Iassigment3';
 })
 export class Assignment3Service {
 
-  url: string = "./assets/api/employees.json";
+  url: string = "./assets/api/employees3.json";
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<IAssigment3[]> {
