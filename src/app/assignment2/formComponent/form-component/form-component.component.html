@@ -1,8 +1,8 @@
 <form [formGroup]="employeeForm">
 
     <div class="row">
-        <label class="col-2 col-md-2">ID:</label>
-        <div class="col-4 col-md-10">
+        <label class="col-3 col-md-3 ">ID:</label>
+        <div class="col-9 col-md-9">
             <input type="number" class="form-control ng-untouched ng-pristine ng-valid" required
                 formControlName="idForm" name="id" />
         </div>
@@ -10,37 +10,37 @@
 
     </div>
     <div class="row">
-        <div class="col-2 col-md-2">
+        <div class="col-3 col-md-3">
             Name:
         </div>
-        <div class="col-10 col-md-10">
+        <div class="col-9 col-md-9">
             <input type="text" required class="form-control ng-untouched ng-pristine ng-valid"
                 formControlName="nameForm" name="name" />
         </div>
 
     </div>
     <div class="row">
-        <div class="col-2 col-md-2">
+        <div class="col-3 col-md-3">
             Salary:
         </div>
-        <div class="col-10 col-md-10">
+        <div class="col-9 col-md-9">
             <input type="number" required class="form-control ng-untouched ng-pristine ng-valid" name="salary"
                 formControlName="salaryForm" />
         </div>
 
     </div>
     <div class="row">
-        <div class="col-2 col-md-2">
+        <div class="col-3 col-md-3">
             Department:
         </div>
-        <div class="col-10 col-md-10">
+        <div class="col-9 col-md-9">
             <input type="text" required class="form-control ng-untouched ng-pristine ng-valid" required
                 formControlName="depForm" name="department" />
         </div>
 
     </div>
 
-    <div class="row">
+    <div class="row" style="margin-top: 1em;">
         <div class="col-6 col-md-5 offset-md-2 ">
             <button type="button" *ngIf="editarOadd == 'Add'" class="btn btn-primary" style="margin-bottom: 1em;"
                 (click)="agregarEmployee()">Add Employee</button>
