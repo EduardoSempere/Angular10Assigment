@@ -1,1 +1,22 @@
-<p>assignment3 works!</p>
+<div class="responsive" *ngIf="employees && employees.length" style="margin-top: 1em;">
+    <table class="table table-striped table-bordered" >
+        <thead class="thead-inverse">
+            <tr>
+                <th class="thSort" (click)="sort(0, 'empId',0)">ID</th>
+                <th class="thSort" (click)="sort(1, 'empName',1)">NAME</th>
+                <th class="thSort" (click)="sort(2, 'empSal',0)">SALARY</th>
+                <th class="thSort" (click)="sort(3, 'empDep',1)">DEPARTMENT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.empId}}</td>
+                <td>{{employee.empName}}</td>
+                <td>{{employee.empSal | currency: 'USD'}}</td>
+                <td>{{employee.empDep}}</td>
+                
+            </tr>
+             
+        </tbody>
+    </table>
+</div>

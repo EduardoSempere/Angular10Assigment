@@ -1,1 +1,68 @@
-<p>assignment2 works!</p>
+<div class="card" style="margin-top: 1em;">
+    <div class="card-header">
+        Angular Operation
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Create
+                    </div>
+                    <div class="card-body">
+                        <app-form-component [editarOadd]="'Add'"                   (employee)="agregarEmployee($event)">
+                        </app-form-component>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Edit
+                    </div>
+                    <div class="card-body">
+                        <app-form-component #editarFormComponent [editarOadd]="'Editar'" >
+                        </app-form-component>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="responsive" *ngIf="employees && employees.length" style="margin-top: 1em;">
+    <table class="table table-inverse table-inverse ">
+        <thead class="thead-inverse">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Department</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td scope="row">{{employee.empId}}</td>
+                <td>{{employee.empName}}</td>
+                <td>{{employee.empSal | currency: 'USD'}} </td>
+                <td>{{employee.empDep}}</td>
+                <td>
+                    <div class="row">
+                        <div class="col"><span class="fa fa-pencil fa-2x blackiconcoloredit" style="cursor: pointer;"
+                                (click)="editarFormComponent.editarEmployee(employee)"></span></div>
+                        <div class="col"><span class="fa fa-trash fa-2x blackiconcolortrash" style="cursor: pointer;"
+                                (click)="borrarEmployee(employee.empId)"></span></div>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+</div>
