@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StarComponent } from './star/star.component';
 import { FormsModule } from '@angular/forms';
+import { EqualValidateDirective } from './directive/validate/equal-validate.directive';
 
 
 
 @NgModule({
   declarations: [
-    StarComponent
+    StarComponent,
+    EqualValidateDirective
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   exports: [
     StarComponent,
     CommonModule,
-    FormsModule
+    FormsModule,
+    EqualValidateDirective
   ]
 })
 export class ShareModule { }

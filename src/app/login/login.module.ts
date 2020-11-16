@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SignupComponent } from './signup/signup/signup.component';
+import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginRoutingModule } from './login-routing.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginRoutingModule } from './login-routing.module'; 
+import { ShareModule } from '../share/share.module';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -14,8 +15,9 @@ import { LoginRoutingModule } from './login-routing.module';
   ],
   imports: [
     CommonModule,
-    FormsModule,
+    ShareModule,
     ReactiveFormsModule,
+    DialogModule,
     LoginRoutingModule
   ]
 })

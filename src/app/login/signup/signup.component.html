@@ -1,0 +1,319 @@
+<div class="row justify-content-center" style="margin-top: 1em;">
+    <div class="col-md-12">
+        <div class="card">
+            <header class="card-header">
+
+                <h4 class="card-title mt-2">Sign up</h4>
+            </header>
+            <article class="card-body">
+                <form [formGroup]="signupForm" (ngSubmit)="onSubmit() ">
+                    <div class="form-row">
+                        <div class="col form-group">
+
+                            <div class="form-row">
+
+                                <div class="col form-group">
+                                    <label>First name </label>
+                                    <input type="text" name="firstName" formControlName="firstName" class="form-control"
+                                        placeholder="" id="firstName">
+                                    <div *ngIf="signupForm.get('firstName').invalid && (signupForm.get('firstName').dirty || signupForm.get('firstName').touched)"
+                                        class="alert alert-danger">
+
+                                        
+                                            <small *ngIf="signupForm.get('firstName').errors?.required" class="form-text text-muted">First Name is required</small>
+                                        
+                                        
+                                            <small *ngIf="signupForm.get('firstName').errors?.minlength" class="form-text text-muted"> Name must be at least 4 characters
+                                                long.</small>
+                                        
+
+                                    </div>
+                                </div>
+                                <div class="col form-group">
+                                    <label>Last name</label>
+                                    <input type="text" formControlName="lastName" class="form-control" placeholder=" ">
+                                    <div *ngIf="signupForm.get('lastName').invalid && (signupForm.get('lastName').dirty || signupForm.get('lastName').touched)"
+                                        class="alert alert-danger">
+
+                                         
+                                            <small  *ngIf="signupForm.get('lastName').errors?.required" class="form-text text-muted">Last Name is required</small>
+                                         
+                                         
+                                            <small *ngIf="signupForm.get('lastName').errors?.minlength" class="form-text text-muted"> Name must be at least 4 characters
+                                                long.</small>
+                                       
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>US Phone </label>
+                                    <input type="text" name="phone" formControlName="phone" class="form-control"
+                                        placeholder="" id="phone">
+                                    <div *ngIf="(signupForm.get('phone').errors?.required || signupForm.get('phone').errors?.pattern )  && (signupForm.get('phone').dirty || signupForm.get('phone').touched)"
+                                        class="alert alert-danger">
+
+                                        <small *ngIf="signupForm.get('phone').errors?.required"
+                                            class="form-text text-muted">Phone is required</small>
+                                        <small *ngIf="signupForm.get('phone').errors?.pattern"
+                                            class="form-text text-muted"> Invalid phone.</small>
+
+
+                                    </div>
+                                </div>
+                                <div class="col form-group">
+                                    <label>Rating</label>
+                                    <input type="text" formControlName="rating" class="form-control" placeholder=" ">
+                                    <div *ngIf="signupForm.get('rating').invalid && (signupForm.get('rating').dirty || signupForm.get('rating').touched)"
+                                        class="alert-danger">
+
+                                        <div *ngIf="signupForm.get('rating').errors?.required">
+                                            <small class="form-text text-muted">Last Name is required</small>
+                                        </div>
+                                        <div *ngIf="signupForm.get('rating').errors?.minlength">
+                                            <small class="form-text text-muted"> Name must be at least 4 characters
+                                                long.</small>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input type="email" formControlName="email" class="form-control" placeholder="">
+                                <div *ngIf="(signupForm.get('email').errors?.required || signupForm.get('email').errors?.email )&& (signupForm.get('email').dirty || signupForm.get('email').touched)"
+                                    class="cross-validation-error-message alert alert-danger">
+                                    <small *ngIf="signupForm.get('email').errors?.required"
+                                        class="form-text text-muted">The email is required</small>
+                                    <small *ngIf="signupForm.get('email').errors?.email" class="form-text text-muted">
+                                        Not is an email valid</small>
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Email address</label>
+                                <input type="email" [class.is-invalid]="signupForm.errors?.equalValidate"
+                                    formControlName="email2" class="form-control" placeholder="">
+
+                                <div *ngIf="(signupForm.get('email2').errors?.required || signupForm.get('email2').errors?.email || signupForm.errors?.equalValidate )&& (signupForm.get('email2').dirty || signupForm.get('email2').touched)"
+                                    class="cross-validation-error-message alert alert-danger">
+                                    <small *ngIf="signupForm.get('email2').errors?.required"
+                                        class="form-text text-muted">The email is required</small>
+                                    <small *ngIf="signupForm.get('email2').errors?.email" class="form-text text-muted">
+                                        Not is an email valid</small>
+                                    <small *ngIf="signupForm.errors?.equalValidate" class="form-text text-muted"> The
+                                        confirmation does not match the email adress</small>
+                                </div>
+
+
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Notification </label>
+                                </div>
+                                <div class="col form-group">
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" value="Yes"
+                                            formControlName="notification">
+                                        <span class="form-check-label"> Yes </span>
+                                    </label>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" value="No"
+                                            formControlName="notification">
+                                        <span class="form-check-label"> No</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div *ngIf="signupForm.get('notification').value == 'Yes'" class="form-row">
+                                <div class="form-group">
+                                    <label>Email notification</label>
+                                    <input type="email" formControlName="emailN" class="form-control" placeholder="">
+                                    <div *ngIf="signupForm.get('emailN').invalid && (signupForm.get('emailN').dirty || signupForm.get('emailN').touched)"
+                                        class="alert-danger">
+
+                                        <div *ngIf="signupForm.get('emailN').errors?.required">
+                                            <small class="form-text text-muted">The email is required</small>
+                                        </div>
+                                        <div *ngIf="signupForm.get('emailN').errors?.email">
+                                            <small class="form-text text-muted"> Not is an email valid</small>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div *ngIf="signupForm.get('notification').value == 'Yes'" class="form-row">
+                                <label for="notificacionArea">Notification Text</label>
+                                <textarea class="form-control" formControlName="textN" id="notificacionArea"
+                                    rows="3"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-check">
+                                    <input class="form-check-input" formControlName="sendCatalog" type="checkbox"
+                                        value="1" id="defaultCheck1" (click)="sendCatalog()">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Send me your catalog
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col form-group" *ngIf="signupForm.get('sendCatalog').value">
+
+                            <div class="form-row">
+                                <div formArrayName="addresses">
+                                    <div style="margin-top:5px; margin-bottom:5px;"
+                                        *ngFor="let address of signupForm.get('addresses').controls; let i=index">
+                                        <div [formGroupName]="i">
+
+
+                                            <fieldset>
+
+                                                <div class="form-row">
+                                                    <div class="col form-group">
+                                                        <label>Address Type</label>
+                                                    </div>
+                                                    <div class="col form-group">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="addressType" id="addressHome"
+                                                                formControlName="addressType" value="Home" checked>
+                                                            <label class="form-check-label" for="adreesHome">
+                                                                Home
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="addressType" id="addressWork"
+                                                                formControlName="addressType" value="work">
+                                                            <label class="form-check-label" for="addressWork">
+                                                                Work
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="addressType" id="addressOther"
+                                                                formControlName="addressType" value="other">
+                                                            <label class="form-check-label" for="AddressOther">
+                                                                Other
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+
+                                                    <div class="col form-group">
+                                                        <label>Street Address 1 </label>
+                                                        <input type="text" name="street1" formControlName="street1"
+                                                            class="form-control" placeholder="" id="firstName">
+                                                        <div *ngIf="address.get('street1').invalid && (address.get('stree1').dirty || address.get('street1').touched)"
+                                                            class="alert-danger">
+
+                                                            <div *ngIf="address.get('street1').errors?.required">
+                                                                <small class="form-text text-muted">First Name is
+                                                                    required</small>
+                                                            </div>
+                                                            <div *ngIf="address.get('street1').errors?.minlength">
+                                                                <small class="form-text text-muted"> Name must be at
+                                                                    least 4
+                                                                    characters
+                                                                    long.</small>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col form-group">
+                                                        <label>Street Address 2</label>
+                                                        <input type="text" formControlName="street2"
+                                                            class="form-control" placeholder=" ">
+                                                        <div *ngIf="address.get('street2').invalid && (address.get('street2').dirty || address.get('street2').touched)"
+                                                            class="alert-danger">
+
+                                                            <div *ngIf="address.get('street2').errors?.required">
+                                                                <small class="form-text text-muted">Last Name is
+                                                                    required</small>
+                                                            </div>
+                                                            <div *ngIf="address.get('street2').errors?.minlength">
+                                                                <small class="form-text text-muted"> Name must be at
+                                                                    least 4
+                                                                    characters
+                                                                    long.</small>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col form-group">
+                                                        <div class="form-row">
+
+                                                            <div class="form-group col-md-4">
+                                                                <label>City</label>
+                                                                <input type="text" class="form-control"
+                                                                    formControlName="city">
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label>Country</label>
+                                                                <select id="inputState" class="form-control"
+                                                                    formControlName="country">
+                                                                    <option> Choose...</option>
+                                                                    <option>Uzbekistan</option>
+                                                                    <option>Russia</option>
+                                                                    <option selected="">United States</option>
+                                                                    <option>India</option>
+                                                                    <option>Afganistan</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label>C.P</label>
+                                                                <input type="text" class="form-control"
+                                                                    formControlName="cp">
+                                                            </div>
+                                                        </div>
+
+                                                        
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <button class="col-md-12" type="button" (click)="addAddressForm()"
+                                        [disabled]="i == 2" class="btn btn-primary btn-block">
+                                        Add Adress
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <button type="submit"  [disabled]="!signupForm.valid" class="btn btn-primary btn-block">
+                                    Register
+                                </button>
+             
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </div>
+    
+</div>
+<p-dialog header="From Submit Method" [(visible)]="display">
+    {{temp | json}}
+</p-dialog>
+

@@ -5,4 +5,15 @@ input.ng-dirty  {
   input.ng-touched.ng-invalid  {
     border-left: 5px solid #a94442; /* red */
   }
+
+  .mydialog {
+    width: 50vw;
+}
+
+@media screen and (max-width: 40em) {
+    .mydialog {
+        width: 75vw;
+    }
+}
+
  
